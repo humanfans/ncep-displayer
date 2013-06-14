@@ -1,0 +1,27 @@
+
+///makegsError
+001 makegs.Make.__init__ 的参数data_file_path所指向的路径不存在
+002 makegs.Make.__init__ 的参数gs_file_path所指向的路径不存在
+003 makegs.Make._TimeSwitch 的参数the_time不是datetime.datetime类
+004 makegs.Make.__init__ 的参数result_path所指向的路径不存在
+005 makegs.Make.__init__ 的参数gradsExecPath所指向的路径不存在
+007 makegs.Make.Draw 执行os.system时出错
+008 makegs._ArgSwitch 传入的the_arg在the_dict中不存在
+009 makegs._Script scripts脚本丢失
+010 makegs._Script script文件读取（pickle.load）错误
+
+
+///ServerError
+001 NewConnection尝试创建一个新文件夹时出错
+002 NewConnection尝试初始化makegs时失败
+
+
+///WidgetsError
+001 MainMenu.draw的参数texts不为dict
+002 MainMenu._MakeMenu的参数texts有错误，其中某项key的value既不为空也不为dict或funcion
+003 MainMenu.__init__ icons_dirs打开失败
+101 Toolbar.__init__ icons文件夹丢失
+102 Toolbar.__init__ icons文件丢失
+201 Poster.draw 传入的图片路径不存在
+202 Poster.draw 常使用PIL.Image.open打开图片时出错
+203 Poster.__init__ 找不到背景图片（icons\background.jpg）
