@@ -7,9 +7,14 @@ import os
 import sys
 import random
 import json
+import codecs
 import logging as log
 import logging.handlers as handlers
 
+
+# Author: Laisky
+# Version: 1.1
+# Date: 2013-06-18
 
 
 def IntStr( num, dec=None ):
@@ -53,6 +58,29 @@ def Utf( var ):
   except: pass
 
   return var.encode('utf-8')
+
+
+def LoadConfig( file_path, multi_arg=False, coding="GBK", split="\t", comment="#" ):
+  config_data = codecs.open(file_path, "r", coding).readlines()
+
+  result = {}
+  for each_config in config_data:
+    each_config = each_config.strip()
+    if comment in each_config: each_config = each_config[: each_config.index(comment)]
+    if not each_config: continue
+    arg_key, arg_cont = [i for i in each_config.split(split) if i]
+
+    if not multi_arg:
+      result.update({arg_key: arg_cont})
+    elif multi_arg:
+      if arg_key not in result:
+        result.update({arg_key: [arg_cont]})
+      elif not isinstance(result[arg_key], list):
+        result[arg_key] = [result[arg_key], arg_cont]
+      else:
+        result[arg_key].append(arg_cont)
+
+  return result
 
 
 def MemManager( doc_path, max_mem=2.0 ):
@@ -183,5 +211,6 @@ class logging():
     if self.disabled: return None
 
     self.info_logger.error(text)
+
 
 
