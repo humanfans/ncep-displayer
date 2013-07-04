@@ -1,1 +1,12 @@
 # .gitignore for NCEPdisplayer
+
+
+*.info.txt
+*.error.txt
+*.debug.txt
+
+
+*.pyc
+*.py~
+*.pyc~
+*.txt~
